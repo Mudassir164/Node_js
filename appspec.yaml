@@ -1,22 +1,27 @@
-version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-      nodejs: 14
-  pre_build:
-    commands:
-      - npm install
-  build:
-    commands:
-      - npm test
-  post_build:
-    commands:
-      - zip -r app.zip .
-artifacts:
-  files: app.zip
-
-cache:
-  paths:
-    - node_modules/
-
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/my-node-app
+permissions:
+  - object: /var/www/my-node-app
+    owner: ec2-user
+    group: ec2-user
+    mode: 644
+hooks:
+  BeforeInstall:
+    - location: scripts/before-install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/after-install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/application-start.sh
+      timeout: 300
+      runas: ec2-user
+  ValidateService:
+    - location: scripts/validate-service.sh
+      timeout: 60
+      runas: root
