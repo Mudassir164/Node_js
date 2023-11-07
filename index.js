@@ -3,6 +3,7 @@ const insert = require("./curd/Insert");
 const readData = require("./curd/Read");
 const updateData = require("./curd/Update");
 
+console.log("Hello world")
 readData();
 // insert([
 // {
