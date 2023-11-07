@@ -1,17 +1,12 @@
-const deleteData = require("./curd/Delete");
-const insert = require("./curd/Insert");
-const readData = require("./curd/Read");
-const updateData = require("./curd/Update");
+const http = require("http");
 
-console.log("Hello world") 
-readData();
-// insert([
-// {
-//     name: "Moto e6",
-//     brand: "Mototrola",
-//     price: "1550",
-//     category: "mobile",
-//   },
-// ]);
-// updateData("6327072f0776330228cef21f", { price: "2500" });
-// deleteData("Moto e6");
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello, Node.js!\n");
+});
+
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

@@ -4,7 +4,7 @@
 cd /var/www/my-node-app
 
 # Start the Node.js application
-node app.js
+node index.js
 
 # You can add other commands necessary to start your application here
 # For example, you might want to use a process manager like PM2
