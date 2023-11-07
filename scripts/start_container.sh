@@ -2,4 +2,6 @@
 set -e
 
 # Stop the running container (if any)
+mkdir /home/ubuntu/hello
+cd /home/ubuntu/hello
 echo "Hi"
