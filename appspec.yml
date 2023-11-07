@@ -1,5 +1,13 @@
 version: 0.0
 os: linux
+files:
+  - source: /
+    destination: /var/www/my-node-app
+permissions:
+  - object: /var/www/my-node-app
+    owner: ubuntu
+    group: ubuntu
+    mode: 644
 
 hooks:
   ApplicationStop:
